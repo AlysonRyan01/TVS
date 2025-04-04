@@ -1,7 +1,25 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<section class="flex flex-col font-['Open_Sans',sans-serif] overflow-hidden">
+    <div class="flex flex-row w-[90%] self-center h-fit justify-between pt-5 pb-5 sm:w-[70%] lg:w-[70%]">
+        <img src="img/tvs-logo.PNG" class="h-[50px]"/>
+        <img @onclick="OpenDrawer" src="/images/cardapio.png" alt="menu" class="w-11 h-10 lg:hidden"/>
+        <button Underline="Underline.Always" Color="Color.Primary" Href="/">
+            <p class="font-sans font-medium text-base text-white m-0">Home</p>
+        </button>
+        <button  Underline="Underline.Always" Color="Color.Primary" Href="/">
+            <p class="font-sans font-medium text-base text-white m-0">Contato</p></button>
+        <button  Underline="Underline.Always" Color="Color.Primary" Href="/">
+            <p class="font-sans font-medium text-base text-white m-0">Solicitar Orçamento</p></button>
+    </div>
+</section>
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+<MudDrawer Style="overflow:hidden; position:fixed;" @bind-Open="@_open" Width="70vw" Height="100vh" Anchor="Anchor.Left" Elevation="1" Variant="@DrawerVariant.Temporary">
+        <MudDrawerHeader Class="flex flex-col gap-5 mb-5 bg-roxo">
+        </MudDrawerHeader>
+        <MudNavMenu>
+            
+        </MudNavMenu>
+        
+        </MudDrawer>
