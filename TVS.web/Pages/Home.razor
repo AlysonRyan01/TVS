@@ -11,14 +11,27 @@
         </div>
     </div>
 </section>
+<section class="flex flex-col items-center w-full min-h-[90vh] bg-[url('/img/background-desktop.svg')] bg-cover bg-no-repeat">
+    <div class="flex flex-col w-[85%] gap-10 mt-[60px]">
+        <h1 class="font-extrabold text-4xl font-titillium">
+            Faça já o orçamento sem compromisso e com total transparência.
+        </h1>
+    </div>
+</section>
 
 
 
 <MudDrawer Style="overflow:hidden; position:fixed;" @bind-Open="@_open" Width="70vw" Height="100vh" Anchor="Anchor.Left" Elevation="1" Variant="@DrawerVariant.Temporary">
-        <MudDrawerHeader Class="flex flex-col gap-5 mb-5 bg-roxo">
-        </MudDrawerHeader>
-        <MudNavMenu>
-            
+    <MudDrawerHeader Class="flex flex-col gap-5 mb-12 bg-roxo">
+        <img src="/img/tvs-logo.PNG" class="w-[60%]" alt="imagem logo tvs"/>
+    </MudDrawerHeader>
+        <MudNavMenu Class="flex flex-col">
+            <div class="flex flex-col pl-3 gap-5">
+                <MudLink Class="text-base font-sans font-semibold" Href="/" Color="Color.Primary" Underline="Underline.Hover">Home</MudLink>
+                <MudLink Class="text-base font-sans font-semibold" Href="#" Color="Color.Primary" Underline="Underline.Hover">Contato</MudLink>
+                <MudLink Class="text-base font-sans font-semibold" Href="#" Color="Color.Primary" Underline="Underline.Hover">Consultar Orçamento</MudLink>
+                <MudButton Class="text-sm font-sans font-semibold w-fit" FullWidth="false" Size="Size.Large" Href="#" Variant="Variant.Filled" Color="Color.Primary">Solicitar Orçamento</MudButton>
+            </div>
         </MudNavMenu>
         
         </MudDrawer>

@@ -10,7 +10,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ['Open Sans', 'sans-serif'],
-      serif: ['Titillium Web', 'sans-serif']
+      titillium: ['Titillium Web', 'sans-serif']
     },
     extend: {},
   },
