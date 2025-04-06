@@ -8,7 +8,7 @@ public static class MudThemes
     {
         PaletteLight = new PaletteLight()
         {
-            Primary = "#FF3130",
+            Primary = "#BE0405",
             Secondary = "#FFFFFF",
             Tertiary = "#000000",
         },

@@ -1,21 +1,29 @@
 ﻿@page "/"
 
-<section class="flex flex-col">
-    <div class="flex flex-row w-[85%] self-center h-fit justify-between pt-5 pb-5 sm:w-[80%] lg:w-[80%]">
+<section class="flex flex-col border-b">
+    <div class="flex flex-row w-[85%] self-center h-fit justify-between pt-5 pb-5 sm:w-[80%] lg:w-[70%]">
         <img class="h-[38px] md:h-[70px]" src="/img/tvs-logo.PNG" alt="foto tvs logo"/>
         <img @onclick="OpenDrawer" src="/img/menu.png" alt="menu" class="h-[38px] md:hidden"/>
         <div class="hidden md:flex flex-row items-center gap-8">
-            <MudLink Class="text-lg font-sans font-semibold" Href="/" Color="Color.Primary" Underline="Underline.Hover">Home</MudLink>
-            <MudLink Class="text-lg font-sans font-semibold" Href="#" Color="Color.Primary" Underline="Underline.Hover">Contato</MudLink>
-            <MudButton Class="text-lg font-sans font-bold" Size="Size.Large" Href="#" Variant="Variant.Filled" Color="Color.Primary">Solicitar Orçamento</MudButton>
+            <MudLink Class="text-lg font-sans font-semibold" Href="/" Color="Color.Tertiary" Underline="Underline.Hover">Home</MudLink>
+            <MudLink Class="text-lg font-sans font-semibold" Href="#" Color="Color.Tertiary" Underline="Underline.Hover">Contato</MudLink>
+            <MudButton Class="text-lg font-sans font-bold" Size="Size.Large" Href="#" Variant="Variant.Outlined" Color="Color.Primary">Solicitar Orçamento</MudButton>
         </div>
     </div>
 </section>
-<section class="flex flex-col items-center w-full min-h-[90vh] bg-[url('/img/background-desktop.svg')] bg-cover bg-no-repeat">
-    <div class="flex flex-col w-[85%] gap-10 mt-[60px]">
-        <h1 class="font-extrabold text-4xl font-titillium">
-            Faça já o orçamento sem compromisso e com total transparência.
-        </h1>
+<section class="flex flex-col items-center w-full">
+    <div class="flex flex-col lg:flex-row w-[85%] lg:w-[70%] justify-between gap-10 mt-[60px] pb-[50px] lg:pb-[100px] lg:items-center lg:mt-[120px] border-b">
+        <div class="w-full flex flex-col gap-10 lg:max-w-[50%] lg:items-start">
+            <h1 class="font-extrabold text-5xl md:text-7xl font-titillium text-[#BE0405] text-center lg:text-left">
+                Assistência Técnica em TVs - Conserto e Orçamento sem Compromisso
+            </h1>
+            <p class="text-center font-sans font-semibold text-base text-[#3A3A3A] lg:text-lg">Orçamento gratuito, conserto rápido e garantido para sua TV em Campo Largo</p>
+            <img class="flex md:hidden" src="/img/tv.png" alt="imagem TV"/>
+            <MudButton Class="text-lg font-sans font-semibold rounded-xl p-5 w-fit self-center md:self-start mb-8" Size="Size.Large" FullWidth="false" Href="#" Variant="Variant.Filled" Color="Color.Primary">Solicitar Orçamento</MudButton>
+        </div>
+        <div class="hidden lg:flex max-w-[40%]">
+            <img src="/img/tv.png" alt="imagem TV"/>
+        </div>
     </div>
 </section>
 
