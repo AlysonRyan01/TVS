@@ -2,31 +2,87 @@
 
 <section class="flex flex-col border-b">
     <div class="flex flex-row w-[85%] self-center h-fit justify-between pt-5 pb-5 sm:w-[80%] lg:w-[70%]">
-        <img class="h-[38px] md:h-[70px]" src="/img/tvs-logo.PNG" alt="foto tvs logo"/>
-        <img @onclick="OpenDrawer" src="/img/menu.png" alt="menu" class="h-[38px] md:hidden"/>
-        <div class="hidden md:flex flex-row items-center gap-8">
+        <img class="h-[38px] md:h-[40px] lg:h-[60px]" src="/img/tvs-logo.PNG" alt="foto tvs logo"/>
+        <img @onclick="OpenDrawer" src="/img/menu.png" alt="menu" class="h-[38px] lg:hidden"/>
+        <div class="hidden lg:flex flex-row items-center gap-8">
             <MudLink Class="text-lg font-sans font-semibold" Href="/" Color="Color.Tertiary" Underline="Underline.Hover">Home</MudLink>
             <MudLink Class="text-lg font-sans font-semibold" Href="#" Color="Color.Tertiary" Underline="Underline.Hover">Contato</MudLink>
-            <MudButton Class="text-lg font-sans font-bold" Size="Size.Large" Href="#" Variant="Variant.Outlined" Color="Color.Primary">Solicitar Orçamento</MudButton>
+            <MudButton Class="text-lg font-sans font-semibold" Size="Size.Large" Href="#" Variant="Variant.Outlined" Color="Color.Primary">Solicitar Orçamento</MudButton>
         </div>
     </div>
 </section>
 <section class="flex flex-col items-center w-full">
-    <div class="flex flex-col lg:flex-row w-[85%] lg:w-[70%] justify-between gap-10 mt-[60px] pb-[50px] lg:pb-[100px] lg:items-center lg:mt-[120px] border-b">
-        <div class="w-full flex flex-col gap-10 lg:max-w-[50%] lg:items-start">
+    <div class="flex flex-col lg:flex-row w-[85%] lg:w-[70%] justify-between gap-10 mt-[60px] pb-[50px] lg:pb-[100px] lg:items-center lg:mt-[130px] border-b">
+        <div class="w-full flex flex-col gap-10 items-center lg:max-w-[50%] lg:items-start">
             <h1 class="font-extrabold text-5xl md:text-7xl font-titillium text-[#BE0405] text-center lg:text-left">
                 Assistência Técnica em TVs - Conserto e Orçamento sem Compromisso
             </h1>
-            <p class="text-center font-sans font-semibold text-base text-[#3A3A3A] lg:text-lg">Orçamento gratuito, conserto rápido e garantido para sua TV em Campo Largo</p>
-            <img class="flex md:hidden" src="/img/tv.png" alt="imagem TV"/>
-            <MudButton Class="text-lg font-sans font-semibold rounded-xl p-5 w-fit self-center md:self-start mb-8" Size="Size.Large" FullWidth="false" Href="#" Variant="Variant.Filled" Color="Color.Primary">Solicitar Orçamento</MudButton>
+            <p class="text-center font-sans font-semibold text-base text-[#3A3A3A] lg:text-lg lg:text-left lg:mb-5">Orçamento gratuito, conserto rápido e garantido para sua TV em Campo Largo. Qualidade e confiança em assistência técnica e venda de televisores há mais de 30 Anos.</p>
+            <img class="flex md:w-[70%] lg:hidden" src="/img/tv.png" alt="imagem TV"/>
+            <MudButton Class="text-lg font-sans font-semibold rounded-xl p-4 w-fit self-center lg:self-start mb-8" Size="Size.Large" FullWidth="false" Href="#" Variant="Variant.Filled" Color="Color.Primary">Solicitar Orçamento</MudButton>
         </div>
         <div class="hidden lg:flex max-w-[40%]">
             <img src="/img/tv.png" alt="imagem TV"/>
         </div>
     </div>
 </section>
-
+<section class="flex flex-col w-full items-center mt-[60px] lg:mt-[120px]">
+    <div class="flex flex-col w-[85%] lg:w-[70%] border-b">
+        <h1 class="font-extrabold text-5xl font-titillium text-[#BE0405] mb-6">
+            Sobre Nós
+        </h1>
+        <div class="flex flex-col lg:flex-row w-full lg:justify-between mb-[60px] lg:mb-[120px]">
+            <div class="flex flex-col w-full lg:max-w-[60%] gap-5">
+                <p class="text-lg font-sans font-semibold">
+                    Qualidade e Confiança em Assistência Técnica e Venda de Televisores há Mais de 30 Anos
+                </p>
+                <p class="text-base font-sans font-semibold">
+                    Há mais de três décadas, a TVS ELETRÔNICA é sinônimo de excelência no conserto e venda de televisores. Localizada em Campo Largo, Paraná, consolidamos nossa reputação como referência em assistência técnica especializada, oferecendo soluções confiáveis e de alta qualidade para nossos clientes.
+                </p>
+                <p class="text-base font-sans font-semibold">
+                    Somos assistência técnica autorizada Philco e Britânia, o que garante um serviço alinhado aos mais altos padrões das marcas líderes do mercado. Além disso, realizamos laudos técnicos para Cocel, Copel e seguradoras, proporcionando avaliações precisas e reparos especializados para atender às necessidades dos nossos parceiros e clientes.
+                </p>
+                <p class="text-base font-sans font-semibold">
+                    Na TVS ELETRÔNICA, nosso compromisso vai além do conserto de televisores: buscamos a satisfação total do cliente. Com um atendimento personalizado, soluções ágeis e um serviço técnico de confiança, estamos prontos para superar suas expectativas.
+                </p>
+                <p class="text-base font-sans font-semibold">
+                    📍 Rua Centenário, 1531, Centro | 🔧 Mais de 30 anos de experiência
+                </p>
+            </div>
+            <div class="flex flex-col w-full lg:max-w-[35%]">
+                <div class="flex flex-col w-full bg-gradient-to-br from-[#BE0405] to-[#750303] rounded-lg min-h-[300px] mt-[40px] lg:mt-[0px] shadow-xl items-center">
+                    <h1 class="text-lg font-sans font-bold text-primary pt-4 pb-8">NOSSAS CONQUISTAS</h1>
+                    <div class="flex flex-col w-[90%] gap-3">
+                        <div class="flex flex-row gap-2">
+                            <img src="/img/metas.png" alt="metas"/>
+                            <p class="text-base font-semibold text-primary">
+                                Mais de 1.000 vendas realizadas
+                            </p>
+                        </div>
+                        <div class="flex flex-row gap-2">
+                            <img src="/img/metas.png" alt="metas"/>
+                            <p class="text-base font-semibold text-primary">
+                                Mais de 65.000 orçamentos realizados
+                            </p>
+                        </div>
+                        <div class="flex flex-row gap-2">
+                            <img src="/img/metas.png" alt="metas"/>
+                            <p class="text-base font-semibold text-primary">
+                                Mais de 30.000 consertos concluídos
+                            </p>
+                        </div>
+                        <div class="flex flex-row gap-2">
+                            <img src="/img/metas.png" alt="metas"/>
+                            <p class="text-base font-semibold text-primary">
+                                Empresa autorizada Philco
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <MudDrawer Style="overflow:hidden; position:fixed;" @bind-Open="@_open" Width="70vw" Height="100vh" Anchor="Anchor.Left" Elevation="1" Variant="@DrawerVariant.Temporary">
