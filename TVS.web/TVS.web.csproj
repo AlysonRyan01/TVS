@@ -18,4 +18,8 @@
     <_ContentIncludedByDefault Remove="wwwroot\Themes\Theme.css" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TVS.Core\TVS.Core.csproj" />
+  </ItemGroup>
+
 </Project>

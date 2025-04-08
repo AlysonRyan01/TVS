@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVS.web", "TVS.web\TVS.web.csproj", "{C21B258D-F78A-498E-BB23-BDD141C9BF6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVS.Core", "TVS.Core\TVS.Core.csproj", "{12EE1D32-A2CF-4872-B622-2BA5745B89A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{C21B258D-F78A-498E-BB23-BDD141C9BF6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C21B258D-F78A-498E-BB23-BDD141C9BF6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C21B258D-F78A-498E-BB23-BDD141C9BF6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12EE1D32-A2CF-4872-B622-2BA5745B89A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12EE1D32-A2CF-4872-B622-2BA5745B89A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12EE1D32-A2CF-4872-B622-2BA5745B89A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12EE1D32-A2CF-4872-B622-2BA5745B89A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
