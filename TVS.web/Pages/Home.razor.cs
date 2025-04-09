@@ -9,6 +9,7 @@ public partial class Home : ComponentBase
     private bool _open;
     private bool FormIsBusy;
     public ContactRequest Contact { get; set; } = new();
+    bool _contato;
 
     [Inject] private ISnackbar Snackbar { get; set; } = null!;
 
@@ -32,5 +33,9 @@ public partial class Home : ComponentBase
     private void OpenDrawer()
     {
         _open = true;
+    }
+    
+    private void AbrirContato() {
+        _contato = !_contato;
     }
 }

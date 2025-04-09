@@ -251,11 +251,60 @@
         </div>
     </div>
 </section>
-<section class="flex flex-col w-full items-center mt-[50px] lg:mt-[70px] lg:mb-[80px]">
+<section class="flex flex-col w-full items-center mt-[50px] lg:mt-[70px]">
     <h1 class="text-4xl font-titillium font-extrabold text-[#750303] mb-[50px]">
         NOSSA LOCALIZAÇÃO
     </h1>
-    <img src="/img/mapa.png" alt="localizacao TVS" class="w-full lg:max-w-[70%] lg:rounded-lg"/>
+    <img src="/img/mapa.png" alt="localizacao TVS" class="w-full"/>
+</section>
+<section class="flex flex-col sm:flex-row w-[100%] items-center sm:justify-center bg-[#750303] border-t">
+    <div class="flex flex-col sm:flex-row sm:justify-evenly w-full sm:w-[80%] items-center p-[30px]">
+        <img src="/img/TVS-LOGO-BRANCO.PNG" class="w-[80%] md:w-[50%] lg:w-[20%]" alt="TVS logo"/>
+        <div class="flex flex-col w-[100%] items-center mt-4 sm:hidden">
+            <div style="border-bottom: 0.5px solid #BE0405; border-top: 0.5px solid #BE0405;" class="flex flex-col w-full items-center">
+                <button Href="/contato">
+                    <p class="font-sans font-medium text-base text-primary m-0 p-3">Home</p></button>
+            </div>
+            <div style="border-bottom: 0.5px solid #BE0405" class="flex flex-col w-full items-center">
+                <button EndIcon="@Icons.Material.Filled.ArrowDownward" @onclick="AbrirContato" Underline="Underline.Always">
+                    <p class="font-sans font-medium text-base text-primary m-0 p-3">Contato</p></button>
+                <MudCollapse Style="overflow-wrap: break-word" Expanded="_contato">
+                    <p class="p-2 flex-wrap text-wrap rounded-lg font-sans text-primary">
+                        Email: tvseletronica@tvseletronica.com.br<br/>
+                        Fone: (41) 3292-3047
+                    </p>
+                </MudCollapse>
+            </div>
+            <div style="border-bottom: 0.5px solid #BE0405" class="flex flex-col w-full items-center">
+                <button Underline="Underline.Always" Href="/orcamento">
+                    <p class="font-sans font-medium text-base text-primary m-0 p-3">Solicitar Orçamento</p></button>
+            </div>
+        </div>
+        <div class="hidden sm:flex sm:flex-col items-center mt-4">
+            <div class="flex flex-col items-center">
+                <button Underline="Underline.Always" Href="/">
+                    <p class="font-sans text-base font-medium text-primary text-white m-0 p-3">Home</p></button>
+            </div>
+            <div class="flex flex-col items-center">
+                <button EndIcon="@Icons.Material.Filled.ArrowDownward" @onclick="AbrirContato" Underline="Underline.Always">
+                    <p class="font-sans font-medium text-base text-primary m-0 p-3">Contato</p></button>
+                <MudCollapse Style="overflow-wrap: break-word" Expanded="_contato">
+                    <p class="p-2 flex-wrap text-wrap rounded-lg font-sans text-primary">
+                        Email: tvseletronica@tvseletronica.com.br <br/>
+                        Fone: (41) 3292-3047
+                    </p>
+                </MudCollapse>
+            </div>
+            <div class="flex flex-col items-center">
+                <button Underline="Underline.Always" Href="/orcamento">
+                    <p class="font-sans text-base font-medium text-primary text-white m-0 p-3">Solicitar Orçamento</p></button>
+            </div>
+        </div>
+        <div class="flex flex-col items-center text-center">
+            <p class="font-sans font-medium text-base text-primary m-0 p-8">2025 - Direitos reservados</p>
+            <img src="/img/seguranca.png" class="w-[70px] sm:w-[100px]"/>
+        </div>
+    </div>
 </section>
 
 
