@@ -6,3 +6,103 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 
+<header>
+    <section class="flex flex-col border-b">
+        <div class="flex flex-row w-[85%] self-center h-fit justify-between pt-5 pb-5 sm:w-[80%] lg:w-[70%]">
+            <img class="h-[38px] md:h-[40px] lg:h-[60px]" src="/img/tvs-logo.PNG" alt="foto tvs logo"/>
+            <img @onclick="OpenDrawer" src="/img/menu.png" alt="menu" class="h-[38px] lg:hidden"/>
+            <div class="hidden lg:flex flex-row items-center gap-8">
+                <MudLink Class="text-lg font-sans font-semibold" Href="/" Color="Color.Tertiary" Underline="Underline.Hover">Home</MudLink>
+                <MudLink Class="text-lg font-sans font-semibold" Href="#" Color="Color.Tertiary" Underline="Underline.Hover">Contato</MudLink>
+                <MudButton Class="text-lg font-sans font-semibold" Size="Size.Large" Href="#" Variant="Variant.Outlined" Color="Color.Primary">Solicitar Orçamento</MudButton>
+            </div>
+        </div>
+    </section>
+</header>
+
+<MudMainContent>
+    @Body
+
+    <MudDrawer Style="overflow:hidden; position:fixed;" @bind-Open="@_open" Width="70vw" Height="100vh" Anchor="Anchor.Left" Elevation="1" Variant="@DrawerVariant.Temporary">
+        <MudDrawerHeader Class="flex flex-col gap-5 mb-12 bg-roxo">
+            <img src="/img/tvs-logo.PNG" class="w-[60%]" alt="imagem logo tvs"/>
+        </MudDrawerHeader>
+        <MudNavMenu Class="flex flex-col">
+            <div class="flex flex-col pl-3 gap-5">
+                <MudLink Class="text-base font-sans font-semibold" Href="/" Color="Color.Primary" Underline="Underline.Hover">Home</MudLink>
+                <MudLink Class="text-base font-sans font-semibold" Href="#" Color="Color.Primary" Underline="Underline.Hover">Contato</MudLink>
+                <MudLink Class="text-base font-sans font-semibold" Href="#" Color="Color.Primary" Underline="Underline.Hover">Consultar Orçamento</MudLink>
+                <MudButton Class="text-sm font-sans font-semibold w-fit" FullWidth="false" Size="Size.Large" Href="#" Variant="Variant.Filled" Color="Color.Primary">Solicitar Orçamento</MudButton>
+            </div>
+        </MudNavMenu>
+
+    </MudDrawer>
+</MudMainContent>
+
+<footer>
+    <section class="flex flex-col sm:flex-row w-[100%] items-center sm:justify-center bg-[#750303] border-t">
+        <div class="flex flex-col sm:flex-row sm:justify-evenly w-full sm:w-[80%] items-center p-[30px]">
+            <img src="/img/TVS-LOGO-BRANCO.PNG" class="w-[80%] md:w-[50%] lg:w-[20%]" alt="TVS logo"/>
+            <div class="flex flex-col w-[100%] items-center mt-4 sm:hidden">
+                <div style="border-bottom: 0.5px solid #BE0405; border-top: 0.5px solid #BE0405;" class="flex flex-col w-full items-center">
+                    <button Href="/contato">
+                        <p class="font-sans font-medium text-base text-primary m-0 p-3">Home</p></button>
+                </div>
+                <div style="border-bottom: 0.5px solid #BE0405" class="flex flex-col w-full items-center">
+                    <button EndIcon="@Icons.Material.Filled.ArrowDownward" @onclick="AbrirContato" Underline="Underline.Always">
+                        <p class="font-sans font-medium text-base text-primary m-0 p-3">Contato</p></button>
+                    <MudCollapse Style="overflow-wrap: break-word" Expanded="_contato">
+                        <p class="p-2 flex-wrap text-wrap rounded-lg font-sans text-primary">
+                            Email: tvseletronica@tvseletronica.com.br<br/>
+                            Fone: (41) 3292-3047
+                        </p>
+                    </MudCollapse>
+                </div>
+                <div style="border-bottom: 0.5px solid #BE0405" class="flex flex-col w-full items-center">
+                    <button Underline="Underline.Always" Href="/orcamento">
+                        <p class="font-sans font-medium text-base text-primary m-0 p-3">Solicitar Orçamento</p></button>
+                </div>
+            </div>
+            <div class="hidden sm:flex sm:flex-col items-center mt-4">
+                <div class="flex flex-col items-center">
+                    <button Underline="Underline.Always" Href="/">
+                        <p class="font-sans text-base font-medium text-primary text-white m-0 p-3">Home</p></button>
+                </div>
+                <div class="flex flex-col items-center">
+                    <button EndIcon="@Icons.Material.Filled.ArrowDownward" @onclick="AbrirContato" Underline="Underline.Always">
+                        <p class="font-sans font-medium text-base text-primary m-0 p-3">Contato</p></button>
+                    <MudCollapse Style="overflow-wrap: break-word" Expanded="_contato">
+                        <p class="p-2 flex-wrap text-wrap rounded-lg font-sans text-primary">
+                            Email: tvseletronica@tvseletronica.com.br <br/>
+                            Fone: (41) 3292-3047
+                        </p>
+                    </MudCollapse>
+                </div>
+                <div class="flex flex-col items-center">
+                    <button Underline="Underline.Always" Href="/orcamento">
+                        <p class="font-sans text-base font-medium text-primary text-white m-0 p-3">Solicitar Orçamento</p></button>
+                </div>
+            </div>
+            <div class="flex flex-col items-center text-center">
+                <p class="font-sans font-medium text-base text-primary m-0 p-8">2025 - Direitos reservados</p>
+                <img src="/img/seguranca.png" class="w-[70px] sm:w-[100px]"/>
+            </div>
+        </div>
+    </section>
+</footer>
+
+@code
+{
+    private bool _open;
+    bool _contato;
+    
+    private void OpenDrawer()
+    {
+        _open = true;
+    }
+    
+    private void AbrirContato() {
+        _contato = !_contato;
+    }
+}
+

@@ -2985,6 +2985,10 @@ video {
     margin-top: 80px;
   }
 
+  .lg\:mt-\[40px\] {
+    margin-top: 40px;
+  }
+
   .lg\:flex {
     display: flex;
   }
