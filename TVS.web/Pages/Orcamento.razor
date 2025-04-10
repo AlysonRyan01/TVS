@@ -1,0 +1,118 @@
+@page "/orcamento"
+
+<section class="flex flex-col w-full items-center bg-[#750303] min-h-[700px] m-0 p-0">
+    <div class="flex flex-row w-[85%] lg:w-[70%] gap-3 items-center lg:items-start lg:justify-center lg:gap-12 mt-[50px] lg:mt-[100px] mb-[50px] lg:mb-[100px]">
+        <div class="hidden lg:flex flex-col w-[45%] lg:max-w-[45%] gap-5">
+            <h1 class="text-5xl font-titillium font-extrabold text-primary mb-[30px]">
+                Solicite seu orçamento sem compromisso!
+            </h1>
+            <div class="flex flex-row gap-3 items-center">
+                <img src="/img/orcamento.png" alt="Ícone de e-mail"/>
+                <p class="text-xl text-primary font-sans font-bold">
+                    Orçamento rápido, gratuito e sem compromisso!
+                </p>
+            </div>
+            <p class="text-base text-primary font-sans font-semibold">
+                Sua TV apresentou defeito? Estamos aqui para ajudar! Preencha os campos abaixo e nossa equipe entrará em contato via e-mail ou WhatsApp com uma solução personalizada.
+            </p>
+            <p class="text-base text-primary font-sans font-bold">
+                Nossa missão é oferecer um atendimento ágil e eficiente, esclarecendo todas as suas dúvidas e proporcionando a melhor experiência possível. 🚀
+            </p>
+        </div>
+        <div class="flex flex-col w-full lg:w-[45%] lg:max-w-[45%] gap-3 items-center">
+            <h1 class="text-3xl font-titillium font-extrabold text-primary mb-[30px] lg:hidden">
+                Solicite seu orçamento sem compromisso!
+            </h1>
+            <form class="flex flex-col items-center lg:items-start w-full gap-4" @onsubmit="SendForm">
+                <!-- Nome -->
+                <div class="flex flex-col w-full">
+                    <label class="block text-sm font-medium text-primary mb-1" for="name">Nome</label>
+                    <input id="name" type="text" @bind="Contact.Name" required
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] focus:border-[#FFFFFF] transition"/>
+                </div>
+
+                <!-- Telefone -->
+                <div class="flex flex-col w-full">
+                    <label class="block text-sm font-medium text-primary mb-1" for="phone">Telefone</label>
+                    <input id="phone" type="tel" @bind="Contact.Phone" required
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] focus:border-[#FFFFFF] transition"/>
+                </div>
+
+                <!-- Email -->
+                <div class="flex flex-col w-full">
+                    <label class="block text-sm font-medium text-primary mb-1" for="email">Email</label>
+                    <input id="email" type="email" @bind="Contact.Email"
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] focus:border-[#FFFFFF] transition"/>
+                </div>
+
+                <!-- Mensagem -->
+                <div class="flex flex-col w-full mb-5">
+                    <label class="block text-sm font-medium text-primary mb-1" for="message">Descrição Detalhada do Defeito</label>
+                    <textarea id="message"
+                              @bind="Contact.Message"
+                              rows="5"
+                              class="w-full px-4 py-2 border border-gray-300 rounded-lg resize-y focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] focus:border-[#FFFFFF] transition">
+                </textarea>
+                </div>
+
+                <MudPaper Class="w-full p-2 mb-4 border border-dashed border-gray-300 rounded-md">
+                    <label for="upload-etiqueta" class="flex items-center gap-2 cursor-pointer">
+                        <MudIcon Icon="@Icons.Material.Filled.UploadFile" />
+                        <MudText>Fotos Da Etiqueta da TV ( Obrigatório )</MudText>
+                    </label>
+
+                    <InputFile id="upload-etiqueta"
+                               class="hidden"
+                               OnChange="LoadEtiquetaFiles"
+                               multiple />
+
+                    @if (_etiquetaFiles.Any())
+                    {
+                        <ul class="mt-2 text-white text-sm">
+                            @foreach (var file in _etiquetaFiles)
+                            {
+                                <li><p class="font-sans font-normal text-base text-black">@file.Name</p></li>
+                            }
+                        </ul>
+                    }
+                </MudPaper>
+
+
+                <MudPaper Class="w-full p-2 mb-4 border border-dashed border-gray-300 rounded-md">
+                    <label for="upload-defeito" class="flex items-center gap-2 cursor-pointer">
+                        <MudIcon Icon="@Icons.Material.Filled.UploadFile" />
+                        <MudText>Fotos ou Vídeos do Defeito ( Obrigatório )</MudText>
+                    </label>
+
+                    <InputFile id="upload-defeito"
+                               class="hidden"
+                               OnChange="LoadDefeitoFiles"
+                               multiple />
+
+                    @if (_defeitoFiles.Any())
+                    {
+                        <ul class="mt-2 text-white text-sm">
+                            @foreach (var file in _defeitoFiles)
+                            {
+                                <li><p class="font-sans font-normal text-base text-black">@file.Name</p></li>
+                            }
+                        </ul>
+                    }
+                </MudPaper>
+
+                <!-- Botão -->
+                @if (_formIsBusy)
+                {
+                    <MudProgressCircular Size="Size.Medium" Class="align-self-center" Color="Color.Info" Indeterminate="true" />
+                }
+                else
+                {
+                    <button type="submit" disabled="@((_formIsBusy || _isButtonDisabled))"
+                            class="w-[50%]  bg-primary hover:bg-[#FF8659] text-[#750303] text-lg font-semibold py-2 px-5 rounded-lg transition">
+                        @(_isButtonDisabled ? $"Aguarde {_buttonCountdown.Minutes:D2}:{_buttonCountdown.Seconds:D2}..." : "Enviar")
+                    </button>
+                }
+            </form>
+        </div>
+    </div>
+</section>

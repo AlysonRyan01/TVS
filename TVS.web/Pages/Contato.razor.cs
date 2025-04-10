@@ -6,7 +6,7 @@ using TVS.Core.Services;
 
 namespace TVS.web.Pages;
 
-public partial class Home : ComponentBase
+public partial class Contato : ComponentBase
 {
     private bool _formIsBusy;
     private ContactRequest Contact { get; set; } = new();

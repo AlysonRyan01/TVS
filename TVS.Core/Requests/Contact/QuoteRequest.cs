@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Http;
 
 namespace TVS.Core.Requests.Contact;
 
-public class ContactRequest
+public class QuoteRequest
 {
     public string Name { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public string Phone { get; set; } = string.Empty;
-    public string Message { get; set; } = string.Empty;
-    public List<IFormFile> Files { get; set; } = new List<IFormFile>();
+    public string Description { get; set; } = string.Empty;
+    public IFormFileCollection Files { get; set; } = null!;
 }

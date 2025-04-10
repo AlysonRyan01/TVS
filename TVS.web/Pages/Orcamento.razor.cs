@@ -1,22 +1,29 @@
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using MudBlazor;
+using TVS.Core.Model;
 using TVS.Core.Requests.Contact;
 using TVS.Core.Requests.Email;
 using TVS.Core.Services;
 
 namespace TVS.web.Pages;
 
-public partial class Home : ComponentBase
+public partial class Orcamento : ComponentBase
 {
     private bool _formIsBusy;
     private ContactRequest Contact { get; set; } = new();
+    private List<IBrowserFile> _etiquetaFiles = new();
+    private List<IBrowserFile> _defeitoFiles = new();
+    
     private bool _isButtonDisabled;
     private TimeSpan _buttonCountdown = TimeSpan.Zero;
     private Timer? _countdownTimer;
 
+    
     [Inject] private ISnackbar Snackbar { get; set; } = null!;
     [Inject] private IEmailService EmailService { get; set; } = null!;
 
+    
     private async Task SendForm()
     {
         _formIsBusy = true;
@@ -52,10 +59,38 @@ public partial class Home : ComponentBase
                 if (string.IsNullOrWhiteSpace(Contact.Message))
                     Snackbar.Add("Por favor, insira um texto", Severity.Error);
                 
+                if (string.IsNullOrWhiteSpace(Contact.Phone))
+                    Snackbar.Add("Por favor, insira um telefone", Severity.Error);
+                
+                if (!_etiquetaFiles.Any() || !_defeitoFiles.Any())
+                {
+                    if (!_etiquetaFiles.Any())
+                        Snackbar.Add("Por favor, insira pelo menos uma imagem da etiqueta", Severity.Error);
+    
+                    if (!_defeitoFiles.Any())
+                        Snackbar.Add("Por favor, insira pelo menos uma imagem ou vídeo do defeito", Severity.Error);
+                }
+
+                var attachments = new List<AttachmentFile?>();
+
+                foreach (var file in _etiquetaFiles.Concat(_defeitoFiles))
+                {
+                    using var stream = file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024);
+                    using var ms = new MemoryStream();
+                    await stream.CopyToAsync(ms);
+                    attachments.Add(new AttachmentFile
+                    {
+                        FileName = file.Name,
+                        Content = ms.ToArray(),
+                        ContentType = file.ContentType
+                    });
+                }
+
                 var request = new SendEmailRequest
                 {
-                    Body = $"{Contact.Message} - Email do cliente: {Contact.Email}, Telefone do cliente: {Contact.Phone}",
-                    Name = Contact.Name
+                    Name = Contact.Name,
+                    Body = $"{Contact.Message}<br/><br/>Email: {Contact.Email}<br/>Telefone: {Contact.Phone}",
+                    Attachments = attachments
                 };
                 
                 var result = await EmailService.SendAsync(request);
@@ -97,7 +132,37 @@ public partial class Home : ComponentBase
         finally
         {
             Contact = new();
+            _etiquetaFiles.Clear();
+            _defeitoFiles.Clear();
             _formIsBusy = false;
         }
     }
+    
+    private async Task LoadEtiquetaFiles(InputFileChangeEventArgs e)
+    {
+        var newFiles = e.GetMultipleFiles();
+
+        foreach (var file in newFiles)
+        {
+            if (!_etiquetaFiles.Any(f => f.Name == file.Name && f.Size == file.Size))
+            {
+                _etiquetaFiles.Add(file);
+            }
+        }
+    }
+
+    private async Task LoadDefeitoFiles(InputFileChangeEventArgs e)
+    {
+        var newFiles = e.GetMultipleFiles();
+
+        foreach (var file in newFiles)
+        {
+            if (!_defeitoFiles.Any(f => f.Name == file.Name && f.Size == file.Size))
+            {
+                _defeitoFiles.Add(file);
+            }
+        }
+    }
+
+
 }

@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-<section class="flex flex-col items-center w-full">
+<section class="flex flex-col items-center w-full mt-[50px]">
     <div class="flex flex-col lg:flex-row w-[85%] lg:w-[70%] justify-between gap-10 pb-[50px] lg:pb-[100px] lg:items-center border-b">
         <div class="w-full flex flex-col gap-10 items-center lg:max-w-[50%] lg:mt-[40px] lg:items-start">
             <h1 class="font-extrabold text-5xl lg:text-6xl font-titillium text-[#BE0405] text-center lg:text-left">
@@ -8,7 +8,7 @@
             </h1>
             <p class="text-center font-sans font-semibold text-base text-[#3A3A3A] lg:text-lg lg:text-left lg:mb-5">Orçamento gratuito, conserto rápido e garantido para sua TV em Campo Largo. Qualidade e confiança em assistência técnica e venda de televisores há mais de 30 Anos.</p>
             <img class="flex md:w-[70%] lg:hidden" src="/img/tv.png" alt="imagem TV"/>
-            <MudButton Class="text-lg font-sans font-semibold rounded-xl p-4 w-fit self-center lg:self-start mb-8" Size="Size.Large" FullWidth="false" Href="#" Variant="Variant.Filled" Color="Color.Primary">Solicitar Orçamento</MudButton>
+            <MudButton Class="text-lg font-sans font-semibold rounded-xl p-4 w-fit self-center lg:self-start mb-8" Size="Size.Large" FullWidth="false" Href="/orcamento" Variant="Variant.Filled" Color="Color.Primary">Solicitar Orçamento</MudButton>
         </div>
         <div class="hidden lg:flex max-w-[40%]">
             <img src="/img/tv.png" alt="imagem TV"/>
@@ -232,10 +232,17 @@
                 </div>
 
                 <!-- Botão -->
-                <button type="submit" disabled="@((_formIsBusy || _isButtonDisabled))"
-                        class="w-[50%]  bg-primary hover:bg-[#FF8659] text-[#750303] text-lg font-semibold py-2 px-5 rounded-lg transition">
-                    @(_isButtonDisabled ? $"Aguarde {_buttonCountdown.Minutes:D2}:{_buttonCountdown.Seconds:D2}..." : "Enviar")
-                </button>
+                @if (_formIsBusy)
+                {
+                    <MudProgressCircular Size="Size.Medium" Class="align-self-center" Color="Color.Info" Indeterminate="true" />
+                }
+                else
+                {
+                    <button type="submit" disabled="@((_formIsBusy || _isButtonDisabled))"
+                            class="w-[50%]  bg-primary hover:bg-[#FF8659] text-[#750303] text-lg font-semibold py-2 px-5 rounded-lg transition">
+                        @(_isButtonDisabled ? $"Aguarde {_buttonCountdown.Minutes:D2}:{_buttonCountdown.Seconds:D2}..." : "Enviar")
+                    </button>
+                }
             </form>
         </div>
     </div>

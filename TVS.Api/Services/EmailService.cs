@@ -9,8 +9,8 @@ namespace TVS.Api.Services;
 public class EmailService : IEmailService
 {
     private readonly string _toEmail = "tvseletronica@tvseletronica.com.br";
-    private readonly string _toName = "Site TVS";
-    private readonly string _subject = "Mensagem do site";
+    private readonly string _toName = "Orçamento pelo site";
+    private readonly string _subject = "Orçamento pelo site";
     private readonly string _fromEmail = "tvseletronica@tvseletronica.com.br";
 
     public async Task<BaseResponse<string>> SendAsync(
@@ -33,6 +33,16 @@ public class EmailService : IEmailService
             mail.IsBodyHtml = true;
 
             mail.To.Add(new MailAddress(_toEmail, _toName));
+            
+            if (request.Attachments.Any())
+            {
+                foreach (var attachment in request.Attachments)
+                {
+                    var stream = new MemoryStream(attachment!.Content);
+                    var mailAttachment = new Attachment(stream, attachment.FileName, attachment.ContentType);
+                    mail.Attachments.Add(mailAttachment);
+                }
+            }
 
             await smtp.SendMailAsync(mail, cancellationToken);
             
