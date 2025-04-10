@@ -1,16 +1,36 @@
 using TVS.Api;
 using TVS.Api.Services;
+using TVS.Core;
 using TVS.Core.Requests.Email;
+using TVS.Core.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddTransient<EmailService>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Cors", policy =>
+    {
+        policy.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
+builder.Services.AddTransient<IEmailService, EmailService>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+Configuration.FrontendUrl = builder.Configuration["FrontendUrl"] ?? string.Empty;
+Configuration.BackendUrl = builder.Configuration["BackendUrl"] ?? string.Empty;
+
 var app = builder.Build();
+
+app.UseHttpsRedirection();
+app.UseRouting();
+app.UseCors("Cors");
+app.MapControllers();
 
 if (app.Environment.IsDevelopment())
 {
@@ -18,24 +38,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseAuthentication();
-app.UseAuthorization();
-app.MapControllers();
-
 var smtp = new ApiConfig.SmtpConfiguration();
 app.Configuration.GetSection("Smtp").Bind(smtp);
 ApiConfig.Smtp = smtp;
 
 app.MapPost("/api/contato", async (
     SendEmailRequest request,
-    EmailService emailService,
+    IEmailService emailService,
     CancellationToken cancellationToken) =>
 {
     var send = await emailService.SendAsync(request, cancellationToken);
 
-    return send
-        ? Results.Ok("Mensagem enviada com sucesso!")
-        : Results.Problem("Erro ao enviar o e-mail.");
+    return send.IsSuccess ? Results.Ok(send) : Results.BadRequest(send);
 });
 
 app.Run();
