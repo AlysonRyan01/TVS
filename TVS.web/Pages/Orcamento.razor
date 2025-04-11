@@ -105,7 +105,7 @@
                 else
                 {
                     <button type="submit" disabled="@((_formIsBusy || _isButtonDisabled))"
-                            class="w-[50%]  bg-primary hover:bg-[#FF8659] text-[#750303] text-lg font-semibold py-2 px-5 rounded-lg transition">
+                            class="w-[50%]  bg-[#a2c7bb] hover:bg-[#92a68a] text-[#750303] text-lg font-semibold py-2 px-5 rounded-lg transition">
                         @(_isButtonDisabled ? $"Aguarde {_buttonCountdown.Minutes:D2}:{_buttonCountdown.Seconds:D2}..." : "Enviar")
                     </button>
                 }

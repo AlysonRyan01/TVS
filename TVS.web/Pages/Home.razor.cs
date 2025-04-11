@@ -55,7 +55,8 @@ public partial class Home : ComponentBase
                 var request = new SendEmailRequest
                 {
                     Body = $"{Contact.Message} - Email do cliente: {Contact.Email}, Telefone do cliente: {Contact.Phone}",
-                    Name = Contact.Name
+                    Name = Contact.Name,
+                    Subject = "Contato via site"
                 };
                 
                 var result = await EmailService.SendAsync(request);

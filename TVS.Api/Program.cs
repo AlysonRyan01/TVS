@@ -52,4 +52,6 @@ app.MapPost("/api/contato", async (
     return send.IsSuccess ? Results.Ok(send) : Results.BadRequest(send);
 });
 
+app.MapGet("/", () => Results.Ok("API TVS está online 🚀"));
+
 app.Run();

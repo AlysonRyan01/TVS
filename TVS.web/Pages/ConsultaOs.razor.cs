@@ -6,7 +6,7 @@ using TVS.Core.Services;
 
 namespace TVS.web.Pages;
 
-public partial class Contato : ComponentBase
+public partial class ConsultaOs : ComponentBase
 {
     private bool _formIsBusy;
     private ContactRequest Contact { get; set; } = new();
@@ -50,13 +50,13 @@ public partial class Contato : ComponentBase
                     Snackbar.Add("Por favor, insira um nome", Severity.Error);
                 
                 if (string.IsNullOrWhiteSpace(Contact.Message))
-                    Snackbar.Add("Por favor, insira um texto", Severity.Error);
+                    Snackbar.Add("Por favor, insira uma ordem de serviço", Severity.Error);
                 
                 var request = new SendEmailRequest
                 {
                     Body = $"{Contact.Message} - Email do cliente: {Contact.Email}, Telefone do cliente: {Contact.Phone}",
                     Name = Contact.Name,
-                    Subject = "Contato via site"
+                    Subject = "Consulta de OS"
                 };
                 
                 var result = await EmailService.SendAsync(request);

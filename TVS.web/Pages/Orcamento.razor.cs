@@ -90,7 +90,8 @@ public partial class Orcamento : ComponentBase
                 {
                     Name = Contact.Name,
                     Body = $"{Contact.Message}<br/><br/>Email: {Contact.Email}<br/>Telefone: {Contact.Phone}",
-                    Attachments = attachments
+                    Attachments = attachments,
+                    Subject = "Orçamento via site",
                 };
                 
                 var result = await EmailService.SendAsync(request);

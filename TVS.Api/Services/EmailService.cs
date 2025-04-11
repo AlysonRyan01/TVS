@@ -9,8 +9,7 @@ namespace TVS.Api.Services;
 public class EmailService : IEmailService
 {
     private readonly string _toEmail = "tvseletronica@tvseletronica.com.br";
-    private readonly string _toName = "Orçamento pelo site";
-    private readonly string _subject = "Orçamento pelo site";
+    private readonly string _toName = "Suporte TVS";
     private readonly string _fromEmail = "tvseletronica@tvseletronica.com.br";
 
     public async Task<BaseResponse<string>> SendAsync(
@@ -28,7 +27,7 @@ public class EmailService : IEmailService
 
             using var mail = new MailMessage();
             mail.From = new MailAddress(_fromEmail, request.Name);
-            mail.Subject = _subject;
+            mail.Subject = request.Subject;
             mail.Body = request.Body;
             mail.IsBodyHtml = true;
 

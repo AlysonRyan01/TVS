@@ -16,7 +16,7 @@ builder.Services.AddMudServices();
 
 builder.Services.AddHttpClient("email", client =>
 {
-    client.BaseAddress = new Uri($"http://localhost:5296/api/");
+    client.BaseAddress = new Uri(Configuration.BackendUrl);
     client.Timeout = TimeSpan.FromSeconds(60);
     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 });

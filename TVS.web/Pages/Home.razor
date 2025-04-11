@@ -197,28 +197,24 @@
         </div>
         <div class="flex flex-col w-full lg:w-[45%] lg:max-w-[45%] gap-3 items-center">
             <form class="flex flex-col items-center lg:items-start w-full gap-4" @onsubmit="SendForm">
-                <!-- Nome -->
                 <div class="flex flex-col w-full">
                     <label class="block text-sm font-medium text-primary mb-1" for="name">Nome</label>
                     <input id="name" type="text" @bind="Contact.Name" required
                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] focus:border-[#FFFFFF] transition"/>
                 </div>
-
-                <!-- Telefone -->
+                
                 <div class="flex flex-col w-full">
                     <label class="block text-sm font-medium text-primary mb-1" for="phone">Telefone</label>
                     <input id="phone" type="tel" @bind="Contact.Phone" required
                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] focus:border-[#FFFFFF] transition"/>
                 </div>
-
-                <!-- Email -->
+                
                 <div class="flex flex-col w-full">
                     <label class="block text-sm font-medium text-primary mb-1" for="email">Email</label>
                     <input id="email" type="email" @bind="Contact.Email"
                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] focus:border-[#FFFFFF] transition"/>
                 </div>
-
-                <!-- Mensagem -->
+                
                 <div class="flex flex-col w-full mb-5">
                     <label class="block text-sm font-medium text-primary mb-1" for="message">Mensagem</label>
                     <textarea id="message"
@@ -227,8 +223,7 @@
                               class="w-full px-4 py-2 border border-gray-300 rounded-lg resize-y focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] focus:border-[#FFFFFF] transition">
                 </textarea>
                 </div>
-
-                <!-- Botão -->
+                
                 @if (_formIsBusy)
                 {
                     <MudProgressCircular Size="Size.Medium" Class="align-self-center" Color="Color.Info" Indeterminate="true" />
@@ -236,7 +231,7 @@
                 else
                 {
                     <button type="submit" disabled="@((_formIsBusy || _isButtonDisabled))"
-                            class="w-[50%]  bg-primary hover:bg-[#FF8659] text-[#750303] text-lg font-semibold py-2 px-5 rounded-lg transition">
+                            class="w-[50%]  bg-[#a2c7bb] hover:bg-[#92a68a] text-[#750303] text-lg font-semibold py-2 px-5 rounded-lg transition">
                         @(_isButtonDisabled ? $"Aguarde {_buttonCountdown.Minutes:D2}:{_buttonCountdown.Seconds:D2}..." : "Enviar")
                     </button>
                 }
@@ -245,7 +240,7 @@
     </div>
 </section>
 <section class="flex flex-col w-full items-center mt-[70px] lg:mt-[100px]">
-    <h1 class="text-4xl font-titillium font-extrabold text-[#750303] mb-[60px] lg:mb-[80px]">
+    <h1 class="text-3xl lg:text-4xl font-titillium font-extrabold text-[#750303] mb-[60px] lg:mb-[80px]">
         NOSSA LOCALIZAÇÃO
     </h1>
     <img src="/img/mapa.png" alt="localizacao TVS" class="w-full"/>
