@@ -26,7 +26,7 @@ jobs:
         run: dotnet publish ./TVS.web/TVS.web.csproj -c Release -o publish
 
       - name: Copiar staticwebapp.config.json para o diretório de saída
-        run: cp ./staticwebapp.config.json ./publish/wwwroot/
+        run: cp ./TVS.web/staticwebapp.config.json ./publish/wwwroot/
 
       - name: Deploy to Azure Static Web Apps
         id: builddeploy
