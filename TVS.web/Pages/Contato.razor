@@ -1,8 +1,8 @@
 @page "/contato"
 
 <section class="flex flex-col w-full items-center bg-[#750303] min-h-[800px] m-0 p-0">
-    <div class="flex flex-col lg:flex-row w-[85%] lg:w-[70%] gap-3 items-center lg:items-start lg:justify-center lg:gap-12 mt-[50px] lg:mt-[100px] mb-[50px] lg:mb-[100px]">
-        <div class="flex flex-col mb-[20px] lg:mb-[0px] w-full lg:w-[45%] lg:max-w-[45%] gap-5">
+    <div class="flex flex-col lg:flex-row w-[85%] lg:w-[70%] gap-3 items-center lg:items-start lg:justify-center lg:gap-12 mt-[50px] lg:mt-[15vh] mb-[50px] lg:mb-[100px]">
+        <div data-aos="slide-right" data-aos-duration="1000" class="flex flex-col mb-[20px] lg:mb-[0px] w-full lg:w-[45%] lg:max-w-[45%] gap-5">
             <h1 class="text-4xl font-titillium font-extrabold text-primary mb-[30px]">
                 Entre em Contato
             </h1>
@@ -31,7 +31,7 @@
                 Nossa equipe está pronta para oferecer o melhor atendimento e solucionar suas dúvidas o mais rápido possível! 🚀
             </p>
         </div>
-        <div class="flex flex-col w-full lg:w-[45%] lg:max-w-[45%] gap-3 items-center">
+        <div data-aos="slide-left" data-aos-duration="1000" class="flex flex-col w-full lg:w-[45%] lg:max-w-[45%] gap-3 items-center">
             <form class="flex flex-col items-center lg:items-start w-full gap-4" @onsubmit="SendForm">
                 <!-- Nome -->
                 <div class="flex flex-col w-full">
