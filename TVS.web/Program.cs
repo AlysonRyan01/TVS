@@ -14,9 +14,10 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddTransient<IEmailService, EmailService>();
 builder.Services.AddMudServices();
 
+
 builder.Services.AddHttpClient("email", client =>
 {
-    client.BaseAddress = new Uri(Configuration.BackendUrl);
+    client.BaseAddress = new Uri("https://tvs-api.azurewebsites.net/");
     client.Timeout = TimeSpan.FromSeconds(60);
     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 });

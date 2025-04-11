@@ -20,7 +20,7 @@ public class EmailService : IEmailService
     {
         try
         {
-            var result = await _client.PostAsJsonAsync($"contato", request);
+            var result = await _client.PostAsJsonAsync("api/contato", request);
             
             return await result.Content.ReadFromJsonAsync<BaseResponse<string>>()
                    ?? new BaseResponse<string>(null, 400, "Falha ao enviar o email");
