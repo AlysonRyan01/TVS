@@ -1,8 +1,8 @@
 @page "/orcamento"
 
 <section class="flex flex-col w-full items-center bg-[#750303] min-h-[700px] m-0 p-0">
-    <div class="flex flex-row w-[85%] lg:w-[70%] gap-3 items-center lg:items-start lg:justify-center lg:gap-12 mt-[50px] lg:mt-[100px] mb-[50px] lg:mb-[100px]">
-        <div class="hidden lg:flex flex-col w-[45%] lg:max-w-[45%] gap-5">
+    <div class="flex flex-col lg:flex-row w-[85%] lg:w-[70%] gap-3 items-center lg:items-start lg:justify-center lg:gap-12 mt-[50px] lg:mt-[100px] mb-[50px] lg:mb-[100px]">
+        <div class="flex flex-col w-full lg:w-[45%] lg:max-w-[45%] gap-5">
             <h1 class="text-5xl font-titillium font-extrabold text-primary mb-[30px]">
                 Solicite seu orçamento sem compromisso!
             </h1>
@@ -20,9 +20,6 @@
             </p>
         </div>
         <div class="flex flex-col w-full lg:w-[45%] lg:max-w-[45%] gap-3 items-center">
-            <h1 class="text-3xl font-titillium font-extrabold text-primary mb-[30px] lg:hidden">
-                Solicite seu orçamento sem compromisso!
-            </h1>
             <form class="flex flex-col items-center lg:items-start w-full gap-4" @onsubmit="SendForm">
                 <!-- Nome -->
                 <div class="flex flex-col w-full">
