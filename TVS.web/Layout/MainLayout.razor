@@ -10,7 +10,7 @@
     <section class="flex flex-col border-b">
         <div class="flex flex-row w-[85%] self-center h-fit justify-between pt-5 pb-5 sm:w-[80%] lg:w-[70%]">
             <MudLink Href="/" Class="inline-block">
-                <img class="h-[38px] md:h-[40px] lg:h-[60px]" src="/img/tvs-logo.png" alt="foto tvs logo"/>
+                <img class="h-[38px] md:h-[40px] lg:h-[60px]" src="/img/tvs-logo.png" alt="Logotipo da TVS Eletrônica"/>
             </MudLink>
             <img @onclick="OpenDrawer" src="/img/menu.png" alt="menu" class="h-[38px] lg:hidden"/>
             <div class="hidden lg:flex flex-row items-center gap-8">
@@ -47,16 +47,16 @@
         <div class="flex flex-col sm:flex-row sm:justify-evenly w-full sm:w-[80%] items-center p-[30px]">
             <img src="/img/tvs-branco.png" class="w-[50%] md:w-[50%] lg:w-[20%]" alt="TVS logo"/>
             <div class="flex flex-col w-[100%] items-center mt-4 sm:hidden">
-                <div style="border-bottom: 0.5px solid #BE0405; border-top: 0.5px solid #BE0405;" class="flex flex-col w-full items-center">
+                <div style="border-bottom: 1px solid #BE0405; border-top: 1px solid #BE0405;" class="flex flex-col w-full items-center">
                     <MudLink Class="text-lg font-sans font-semibold p-3" Href="/" Color="Color.Secondary" Underline="Underline.Hover">Home</MudLink>
                 </div>
-                <div style="border-bottom: 0.5px solid #BE0405" class="flex flex-col w-full items-center">
+                <div style="border-bottom: 1px solid #BE0405" class="flex flex-col w-full items-center">
                     <MudLink Class="text-lg font-sans font-semibold p-3" Href="/contato" Color="Color.Secondary" Underline="Underline.Hover">Contato</MudLink>
                 </div>
-                <div style="border-bottom: 0.5px solid #BE0405" class="flex flex-col w-full items-center">
+                <div style="border-bottom: 1px solid #BE0405" class="flex flex-col w-full items-center">
                     <MudLink Class="text-lg font-sans font-semibold p-3" Href="/orcamento" Color="Color.Secondary" Underline="Underline.Hover">Solicitar Orçamento</MudLink>
                 </div>
-                <div style="border-bottom: 0.5px solid #BE0405" class="flex flex-col w-full items-center">
+                <div style="border-bottom: 1px solid #BE0405" class="flex flex-col w-full items-center">
                     <MudLink Class="text-lg font-sans font-semibold p-3" Href="/consultar-os" Color="Color.Secondary" Underline="Underline.Hover">Consultar Orçamento</MudLink>
                 </div>
             </div>
@@ -76,7 +76,7 @@
             </div>
             <div class="flex flex-col items-center text-center">
                 <p class="font-sans font-medium text-base text-primary m-0 p-8">2025 - Direitos reservados</p>
-                <img src="/img/seguranca.png" class="w-[70px] sm:w-[100px]"/>
+                <img src="/img/seguranca.png" alt="imagem segurança" class="w-[70px] sm:w-[100px]"/>
             </div>
         </div>
     </section>
@@ -85,7 +85,6 @@
 @code
 {
     private bool _open;
-    bool _contato;
     
     private void OpenDrawer()
     {
@@ -95,10 +94,6 @@
     private void CloseDrawer()
     {
         _open = false;
-    }
-    
-    private void AbrirContato() {
-        _contato = !_contato;
     }
 }
 

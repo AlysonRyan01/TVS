@@ -2,7 +2,6 @@ using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
-using TVS.Core;
 using TVS.Core.Services;
 using TVS.web;
 using TVS.web.Services;
