@@ -20,7 +20,6 @@ builder.Services.AddTransient<IEmailService, EmailService>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 Configuration.FrontendUrl = builder.Configuration["FrontendUrl"] ?? string.Empty;
 Configuration.BackendUrl = builder.Configuration["BackendUrl"] ?? string.Empty;
@@ -31,12 +30,6 @@ app.UseHttpsRedirection();
 app.UseRouting();
 app.UseCors("Cors");
 app.MapControllers();
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
 var smtp = new ApiConfig.SmtpConfiguration();
 app.Configuration.GetSection("Smtp").Bind(smtp);
