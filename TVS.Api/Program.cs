@@ -47,6 +47,4 @@ app.MapPost("/api/contato", async (
 
 app.MapMethods("/", new[] { "GET", "HEAD" }, () => Results.Ok("API TVS está online 🚀"));
 
-app.MapGet("/", () => Results.Ok("API TVS está online 🚀"));
-
 app.Run();
